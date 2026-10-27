@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ชาดิวะ (CHADIWA) - ชานมไข่มุกพรีเมียม หอมละมุน อร่อยฟินทุกหยด</title>
+  
+  <!-- Google Fonts: Prompt & Kanit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            tea: {
+              dark: '#2b1810',
+              primary: '#5c3d2e',
+              secondary: '#8b5e3c',
+              pastel: '#d4a373',
+              caramel: '#b08968',
+              cream: '#fefae0',
+              light: '#faf6f0',
+              beige: '#faedcd',
+              foam: '#f5ebe0'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#faf6f0] text-stone-800 antialiased selection:bg-[#d4a373] selection:text-white">
+
+  <!-- ================= TOP ANNOUNCEMENT BAR ================= -->
+  <div class="bg-[#5c3d2e] text-[#faedcd] text-xs sm:text-sm py-2 px-4 text-center font-medium flex items-center justify-center gap-2">
+    <span>✨ เปิดร้านใหม่! ใช้โค้ด <strong class="bg-[#8b5e3c] px-2 py-0.5 rounded text-white">CHADIWA10</strong> ลดทันที 10% ทุกออเดอร์</span>
+    <span class="hidden md:inline">• สะสมแต้มครบ 10 แก้ว ฟรี 1 แก้ว! 🧋</span>
+  </div>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="sticky top-0 z-40 bg-[#faf6f0]/90 backdrop-blur-md border-b border-[#ede0d4] transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#8b5e3c] to-[#5c3d2e] flex items-center justify-center text-white shadow-md shadow-[#8b5e3c]/20 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-mug-hot text-2xl text-[#faedcd]"></i>
+          </div>
+          <div>
+            <span class="text-2xl sm:text-3xl font-extrabold text-[#5c3d2e] brand-font tracking-tight flex items-center gap-1.5">
+              ชาดิวะ <span class="text-xs bg-[#faedcd] text-[#8b5e3c] font-semibold px-2 py-0.5 rounded-full uppercase tracking-wider">CHADIWA</span>
+            </span>
+            <span class="text-[11px] text-stone-500 font-medium block">ชานมดีๆ ที่ใครกินก็ต้องบอกว่า "ชาดีว่ะ!"</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-stone-700">
+          <a href="#home" class="hover:text-[#5c3d2e] transition hover:font-semibold">หน้าแรก</a>
+          <a href="#lab" class="hover:text-[#5c3d2e] transition hover:font-semibold flex items-center gap-1">
+            <span>ห้องทดลองมิกซ์ชา</span>
+            <span class="bg-[#e76f51] text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold animate-pulse">HOT</span>
+          </a>
+          <a href="#menu" class="hover:text-[#5c3d2e] transition hover:font-semibold">เมนูยอดฮิต</a>
+          <a href="#why-us" class="hover:text-[#5c3d2e] transition hover:font-semibold">เรื่องราวของเรา</a>
+          <a href="#promotions" class="hover:text-[#5c3d2e] transition hover:font-semibold">โปรโมชั่น</a>
+          <a href="#contact" class="hover:text-[#5c3d2e] transition hover:font-semibold">สาขา & พิกัด</a>
+        </nav>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center gap-3">
+          <!-- Cart Button -->
+          <button 
+            onclick="toggleCartDrawer()" 
+            class="relative p-3 rounded-2xl bg-white border border-[#ede0d4] text-[#5c3d2e] hover:bg-[#faedcd]/40 hover:border-[#d4a373] transition shadow-sm active:scale-95"
+            aria-label="เปิดตะกร้าสินค้า"
+          >
+            <i class="fa-solid fa-bag-shopping text-xl"></i>
+            <span class="cart-count absolute -top-1.5 -right-1.5 bg-[#e76f51] text-white text-[11px] font-bold w-5 h-5 rounded-full items-center justify-center hidden border-2 border-white">0</span>
+          </button>
+
+          <!-- Order Online CTA -->
+          <a 
+            href="#lab"
+            class="hidden sm:inline-flex items-center gap-2 bg-[#5c3d2e] hover:bg-[#3e2723] text-white px-5 py-3 rounded-2xl text-sm font-semibold shadow-md shadow-[#5c3d2e]/25 transition hover:shadow-lg active:scale-95"
+          >
+            <i class="fa-solid fa-wand-magic-sparkles text-[#faedcd]"></i>
+            <span>สั่งทำแก้วโปรด</span>
+          </a>
+
+          <!-- Mobile Hamburger -->
+          <button id="mobile-menu-btn" class="lg:hidden p-2 text-stone-700 hover:text-[#5c3d2e] text-2xl focus:outline-none">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="hidden lg:hidden py-4 border-t border-[#ede0d4] flex flex-col gap-3 font-medium text-stone-700">
+        <a href="#home" class="py-2 px-3 rounded-xl hover:bg-[#faedcd]/50">หน้าแรก</a>
+        <a href="#lab" class="py-2 px-3 rounded-xl hover:bg-[#faedcd]/50 flex items-center justify-between">
+          <span>ห้องทดลองมิกซ์ชา (Boba Lab)</span>
+          <span class="bg-[#e76f51] text-white text-[10px] px-2 py-0.5 rounded-full font-bold">HOT</span>
+        </a>
+        <a href="#menu" class="py-2 px-3 rounded-xl hover:bg-[#faedcd]/50">เมนูยอดฮิต</a>
+        <a href="#why-us" class="py-2 px-3 rounded-xl hover:bg-[#faedcd]/50">เรื่องราวของเรา</a>
+        <a href="#promotions" class="py-2 px-3 rounded-xl hover:bg-[#faedcd]/50">โปรโมชั่น</a>
+        <a href="#contact" class="py-2 px-3 rounded-xl hover:bg-[#faedcd]/50">สาขา & พิกัด</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section id="home" class="relative pt-8 pb-16 md:pt-14 md:pb-24 overflow-hidden">
+    <!-- Soft Decorative Blobs -->
+    <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-[#faedcd]/60 via-[#f5ebe0]/40 to-transparent rounded-full blur-3xl -z-10 pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Catchy Copywriting -->
+        <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+          <div class="inline-flex items-center gap-2 bg-[#faedcd] border border-[#d4a373]/40 px-4 py-1.5 rounded-full text-xs font-semibold text-[#5c3d2e] shadow-sm">
+            <span class="flex h-2 w-2 rounded-full bg-[#5c3d2e] animate-ping"></span>
+            <span>หอมกลิ่นใบชาแท้ ต้มสดทุก 3 ชั่วโมง</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#5c3d2e] leading-[1.15] brand-font">
+            ชาดิวะ... ชาดีว่ะ! <br/>
+            <span class="text-[#8b5e3c]">อร่อยฟินทุกหยด</span> รสชาติต้นตำรับแท้
+          </h1>
+
+          <p class="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+            สัมผัสความลงตัวของชาใบเกรดพรีเมียมนำเข้าจากไต้หวัน ผสานนมสดแท้ 100% 
+            และไข่มุกต้มสดเคี่ยวน้ำตาลทรายแดงอุ่นๆ เคี้ยวหนุบหนับ ละมุนลิ้นในทุกๆ คำที่คุณดูด
+          </p>
+
+          <!-- Hero CTA buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <a 
+              href="#menu" 
+              class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#5c3d2e] hover:bg-[#3e2723] text-white font-semibold text-center shadow-lg shadow-[#5c3d2e]/30 transition hover:-translate-y-0.5 active:translate-y-0"
+            >
+              ดูเมนูแนะนำทั้งหมด <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+            </a>
+            <a 
+              href="#lab" 
+              class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white hover:bg-[#faedcd]/40 text-[#5c3d2e] border-2 border-[#d4a373] font-semibold text-center transition hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 shadow-sm"
+            >
+              <i class="fa-solid fa-wand-magic-sparkles text-[#b08968]"></i>
+              <span>ลองมิกซ์แก้วเอง (Boba Lab)</span>
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="pt-6 grid grid-cols-3 gap-4 border-t border-[#ede0d4]/80 text-center sm:text-left">
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-[#5c3d2e] brand-font">100%</div>
+              <div class="text-xs text-stone-500 font-medium">ใบชาแท้นำเข้า</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-[#5c3d2e] brand-font">0%</div>
+              <div class="text-xs text-stone-500 font-medium">ไม่มีไขมันทรานส์</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-[#5c3d2e] brand-font">5 ระดับ</div>
+              <div class="text-xs text-stone-500 font-medium">ปรับระดับความหวานได้</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Visual Hero Card & Boba Illustration -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-md">
+            
+            <!-- Main Hero Card -->
+            <div class="relative z-10 bg-white/80 backdrop-blur-xl border border-white/60 p-8 rounded-[40px] shadow-2xl shadow-[#8b5e3c]/15 text-center">
+              
+              <!-- Floating Bubble Badges -->
+              <div class="absolute -top-5 -left-4 bg-[#faedcd] text-[#5c3d2e] font-bold text-xs py-2 px-4 rounded-2xl shadow-md border border-[#d4a373]/30 float-bubble flex items-center gap-2">
+                <i class="fa-solid fa-crown text-amber-600"></i>
+                <span>เมนูยอดฮิตอันดับ 1</span>
+              </div>
+
+              <div class="absolute -bottom-4 -right-4 bg-white text-[#5c3d2e] font-bold text-xs py-2 px-4 rounded-2xl shadow-md border border-[#ede0d4] float-bubble-delayed flex items-center gap-2">
+                <i class="fa-solid fa-heart text-rose-500"></i>
+                <span>ไข่มุกเคี่ยวสดใหม่ 3 ชม.</span>
+              </div>
+
+              <!-- Cup Showcase Visual -->
+              <div class="py-6">
+                <div class="cup-container">
+                  <div class="cup-straw"></div>
+                  <div class="cup-lid"></div>
+                  <div class="cup-body">
+                    <div class="cup-shine"></div>
+                    <div class="tea-liquid" style="background: linear-gradient(180deg, #ddb892 0%, #b08968 100%);">
+                      <div class="tea-foam"></div>
+                      <div class="ice-container">
+                        <div class="ice-cube"></div>
+                        <div class="ice-cube" style="transform: rotate(35deg);"></div>
+                        <div class="ice-cube" style="transform: rotate(-20deg);"></div>
+                      </div>
+                      <div class="pearls-layer">
+                        <div class="pearl-dot"></div>
+                        <div class="pearl-dot" style="animation-delay: 0.3s"></div>
+                        <div class="pearl-dot" style="animation-delay: 0.7s"></div>
+                        <div class="pearl-dot" style="animation-delay: 0.2s"></div>
+                        <div class="pearl-dot" style="animation-delay: 0.5s"></div>
+                        <div class="pearl-dot" style="animation-delay: 0.8s"></div>
+                        <div class="pearl-dot" style="animation-delay: 0.4s"></div>
+                        <div class="pearl-dot" style="animation-delay: 0.6s"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <h3 class="text-xl font-bold text-[#5c3d2e] brand-font">ชาดิวะ ซิกเนเจอร์ (Chadiwa Signature)</h3>
+                <p class="text-xs text-stone-500 mt-1">ชานมไต้หวันเคี่ยวบราวน์ชูการ์ + ไข่มุกอุ่นๆ</p>
+                <div class="mt-4 flex items-center justify-center gap-3">
+                  <span class="text-2xl font-extrabold text-[#5c3d2e]">฿55</span>
+                  <button 
+                    onclick="addToCartFromMenu(1)"
+                    class="bg-[#8b5e3c] hover:bg-[#5c3d2e] text-white px-5 py-2.5 rounded-xl text-sm font-semibold shadow-md transition active:scale-95 flex items-center gap-2"
+                  >
+                    <i class="fa-solid fa-cart-plus"></i> สั่งแก้วนี้
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Background Glow Circles -->
+            <div class="absolute -top-10 -right-10 w-44 h-44 bg-[#faedcd] rounded-full blur-2xl -z-0"></div>
+            <div class="absolute -bottom-10 -left-10 w-44 h-44 bg-[#d4a373]/30 rounded-full blur-2xl -z-0"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BOBA LAB: CUSTOM DRINK BUILDER ================= -->
+  <section id="lab" class="py-16 md:py-24 bg-gradient-to-b from-[#faf6f0] via-[#f5ebe0]/60 to-[#faf6f0] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="inline-block px-4 py-1 rounded-full bg-[#faedcd] text-[#5c3d2e] text-xs font-bold uppercase tracking-wider mb-3">
+          Interactive Boba Lab 🧪
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-[#5c3d2e] brand-font tracking-tight">
+          ห้องทดลองชาดิวะ: มิกซ์แก้วโปรดในสไตล์คุณ
+        </h2>
+        <p class="text-stone-600 text-sm sm:text-base mt-3">
+          ปรับแต่งได้ดั่งใจ เลือกเบสชา ระดับความหวาน ปริมาณน้ำแข็ง และท็อปปิ้งที่ชอบ พร้อมดูแก้วจริงแบบ Real-time!
+        </p>
+      </div>
+
+      <div class="bg-white rounded-[36px] shadow-xl border border-[#ede0d4] p-6 sm:p-10 lg:p-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Left: Dynamic Live Boba Cup Preview -->
+          <div class="lg:col-span-5 flex flex-col items-center justify-center p-6 bg-[#faf6f0] rounded-3xl border border-[#ede0d4]">
+            
+            <span class="text-xs text-stone-400 font-semibold mb-6 flex items-center gap-1.5">
+              <i class="fa-solid fa-eye text-[#8b5e3c]"></i> ภาพจำลองแก้วของคุณ
+            </span>
+
+            <div class="cup-container my-4 scale-110">
+              <div class="cup-straw"></div>
+              <div class="cup-lid"></div>
+              <div class="cup-body">
+                <div class="cup-shine"></div>
+                <!-- Dynamic Cheese Foam Layer -->
+                <div id="visual-cheese" class="cheese-foam-layer" style="display: none;"></div>
+                
+                <!-- Dynamic Tea Liquid Layer -->
+                <div id="visual-liquid" class="tea-liquid" style="background: linear-gradient(180deg, #ddb892 0%, #b08968 100%);">
+                  <div class="tea-foam"></div>
+                  <!-- Dynamic Ice -->
+                  <div id="visual-ice" class="ice-container">
+                    <div class="ice-cube"></div>
+                    <div class="ice-cube" style="transform: rotate(35deg);"></div>
+                    <div class="ice-cube" style="transform: rotate(-20deg);"></div>
+                  </div>
+                  <!-- Dynamic Pearls -->
+                  <div id="visual-pearls" class="pearls-layer">
+                    <div class="pearl-dot"></div>
+                    <div class="pearl-dot" style="animation-delay: 0.3s"></div>
+                    <div class="pearl-dot" style="animation-delay: 0.7s"></div>
+                    <div class="pearl-dot" style="animation-delay: 0.2s"></div>
+                    <div class="pearl-dot" style="animation-delay: 0.5s"></div>
+                    <div class="pearl-dot" style="animation-delay: 0.8s"></div>
+                    <div class="pearl-dot" style="animation-delay: 0.4s"></div>
+                    <div class="pearl-dot" style="animation-delay: 0.6s"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic Summary Box -->
+            <div class="w-full mt-6 bg-white p-4 rounded-2xl border border-[#ede0d4] text-center shadow-sm">
+              <div id="custom-summary-text" class="text-sm text-stone-600 mb-2 leading-relaxed">
+                <!-- Injected by JavaScript -->
+              </div>
+              <div class="flex items-center justify-between border-t border-stone-100 pt-3">
+                <span class="text-xs text-stone-400 font-medium">ราคารวมแก้วนี้:</span>
+                <span id="custom-price-display" class="text-2xl font-black text-[#5c3d2e] brand-font">฿55</span>
+              </div>
+            </div>
+
+            <button 
+              onclick="addCustomDrinkToCart()"
+              class="w-full mt-4 bg-[#5c3d2e] hover:bg-[#3e2723] text-white py-3.5 px-6 rounded-2xl font-bold transition shadow-lg shadow-[#5c3d2e]/20 flex items-center justify-center gap-2 active:scale-95"
+            >
+              <i class="fa-solid fa-bag-shopping text-sm text-[#faedcd]"></i>
+              <span>สั่งแก้วนี้ใส่ตะกร้า</span>
+            </button>
+          </div>
+
+          <!-- Right: Interactive Controls -->
+          <div class="lg:col-span-7 space-y-7">
+            
+            <!-- Step 1: Base Tea -->
+            <div>
+              <label class="block text-sm font-bold text-[#5c3d2e] mb-2.5 flex items-center justify-between">
+                <span>1. เลือกเบสเครื่องดื่ม (Base Tea)</span>
+                <span class="text-xs font-normal text-stone-500">เลือกได้ 1 รายการ</span>
+              </label>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                <button 
+                  onclick="setBase('taiwan', this)" 
+                  class="base-btn bg-[#8b5e3c] text-white p-3 rounded-2xl text-left border border-transparent transition shadow-sm text-xs sm:text-sm font-medium flex flex-col justify-between h-20"
+                >
+                  <span class="font-bold">ชานมไต้หวัน</span>
+                  <span class="opacity-90">฿45</span>
+                </button>
+
+                <button 
+                  onclick="setBase('thai', this)" 
+                  class="base-btn bg-stone-100 text-stone-700 hover:bg-stone-200 p-3 rounded-2xl text-left border border-transparent transition text-xs sm:text-sm font-medium flex flex-col justify-between h-20"
+                >
+                  <span class="font-bold">ชาไทยพรีเมียม</span>
+                  <span class="text-stone-500">฿45</span>
+                </button>
+
+                <button 
+                  onclick="setBase('matcha', this)" 
+                  class="base-btn bg-stone-100 text-stone-700 hover:bg-stone-200 p-3 rounded-2xl text-left border border-transparent transition text-xs sm:text-sm font-medium flex flex-col justify-between h-20"
+                >
+                  <span class="font-bold">มัทฉะอุจิแท้</span>
+                  <span class="text-stone-500">฿55</span>
+                </button>
+
+                <button 
+                  onclick="setBase('cocoa', this)" 
+                  class="base-btn bg-stone-100 text-stone-700 hover:bg-stone-200 p-3 rounded-2xl text-left border border-transparent transition text-xs sm:text-sm font-medium flex flex-col justify-between h-20"
+                >
+                  <span class="font-bold">ดาร์กโกโก้</span>
+                  <span class="text-stone-500">฿50</span>
+                </button>
+
+                <button 
+                  onclick="setBase('peach', this)" 
+                  class="base-btn bg-stone-100 text-stone-700 hover:bg-stone-200 p-3 rounded-2xl text-left border border-transparent transition text-xs sm:text-sm font-medium flex flex-col justify-between h-20"
+                >
+                  <span class="font-bold">ชาพีชน้ำผึ้ง</span>
+                  <span class="text-stone-500">฿45</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2: Sweetness Level -->
+            <div>
+              <label class="block text-sm font-bold text-[#5c3d2e] mb-2.5 flex items-center justify-between">
+                <span>2. ระดับความหวาน (Sweetness)</span>
+                <span class="text-xs font-normal text-stone-500">สูตรหวานน้อยแนะนำ 50%</span>
+              </label>
+              <div class="grid grid-cols-5 gap-2 text-center text-xs sm:text-sm">
+                <button onclick="setSweetness('0%', this)" class="sweet-btn py-2.5 rounded-xl border border-stone-200 text-stone-600 hover:border-[#8b5e3c] transition">0%</button>
+                <button onclick="setSweetness('25%', this)" class="sweet-btn py-2.5 rounded-xl border border-stone-200 text-stone-600 hover:border-[#8b5e3c] transition">25%</button>
+                <button onclick="setSweetness('50%', this)" class="sweet-btn py-2.5 rounded-xl border-2 border-[#8b5e3c] bg-[#faedcd] text-[#5c3d2e] font-bold transition">50%</button>
+                <button onclick="setSweetness('100%', this)" class="sweet-btn py-2.5 rounded-xl border border-stone-200 text-stone-600 hover:border-[#8b5e3c] transition">100%</button>
+                <button onclick="setSweetness('120%', this)" class="sweet-btn py-2.5 rounded-xl border border-stone-200 text-stone-600 hover:border-[#8b5e3c] transition">120%</button>
+              </div>
+            </div>
+
+            <!-- Step 3: Ice Level -->
+            <div>
+              <label class="block text-sm font-bold text-[#5c3d2e] mb-2.5">3. ปริมาณน้ำแข็ง (Ice)</label>
+              <div class="grid grid-cols-3 gap-2 text-xs sm:text-sm font-medium">
+                <button onclick="setIce('ปกติ', this)" class="ice-btn py-2.5 rounded-xl bg-[#8b5e3c] text-white transition text-center">น้ำแข็งปกติ</button>
+                <button onclick="setIce('น้อย', this)" class="ice-btn py-2.5 rounded-xl bg-stone-100 text-stone-700 hover:bg-stone-200 transition text-center">น้ำแข็งน้อย</button>
+                <button onclick="setIce('ไม่ใส่น้ำแข็ง', this)" class="ice-btn py-2.5 rounded-xl bg-stone-100 text-stone-700 hover:bg-stone-200 transition text-center">ไม่ใส่น้ำแข็ง</button>
+              </div>
+            </div>
+
+            <!-- Step 4: Toppings -->
+            <div>
+              <label class="block text-sm font-bold text-[#5c3d2e] mb-2.5 flex items-center justify-between">
+                <span>4. ท็อปปิ้งฟินๆ (Toppings)</span>
+                <span class="text-xs font-normal text-stone-500">เลือกได้หลายอย่าง</span>
+              </label>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs sm:text-sm">
+                
+                <button 
+                  id="topping-pill-pearls"
+                  onclick="toggleTopping('pearls')" 
+                  class="p-2.5 rounded-xl border-2 border-[#8b5e3c] bg-[#faedcd] text-[#5c3d2e] font-bold text-left transition flex items-center justify-between"
+                >
+                  <span>🧋 ไข่มุกบราวน์ชูการ์</span>
+                  <span class="text-[11px] text-stone-500">+฿10</span>
+                </button>
+
+                <button 
+                  id="topping-pill-pudding"
+                  onclick="toggleTopping('pudding')" 
+                  class="p-2.5 rounded-xl border border-stone-200 bg-white text-stone-700 hover:border-[#8b5e3c] text-left transition flex items-center justify-between"
+                >
+                  <span>🍮 พุดดิ้งไข่</span>
+                  <span class="text-[11px] text-stone-500">+฿15</span>
+                </button>
+
+                <button 
+                  id="topping-pill-cheese"
+                  onclick="toggleTopping('cheese')" 
+                  class="p-2.5 rounded-xl border border-stone-200 bg-white text-stone-700 hover:border-[#8b5e3c] text-left transition flex items-center justify-between"
+                >
+                  <span>🧀 วิปชีสพ่นไฟ</span>
+                  <span class="text-[11px] text-stone-500">+฿20</span>
+                </button>
+
+                <button 
+                  id="topping-pill-aloe"
+                  onclick="toggleTopping('aloe')" 
+                  class="p-2.5 rounded-xl border border-stone-200 bg-white text-stone-700 hover:border-[#8b5e3c] text-left transition flex items-center justify-between"
+                >
+                  <span>🌱 ว่านหางจระเข้</span>
+                  <span class="text-[11px] text-stone-500">+฿15</span>
+                </button>
+
+                <button 
+                  id="topping-pill-jelly"
+                  onclick="toggleTopping('jelly')" 
+                  class="p-2.5 rounded-xl border border-stone-200 bg-white text-stone-700 hover:border-[#8b5e3c] text-left transition flex items-center justify-between"
+                >
+                  <span>💎 บุกคริสตัล</span>
+                  <span class="text-[11px] text-stone-500">+฿15</span>
+                </button>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= MENU SHOWCASE ================= -->
+  <section id="menu" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="text-xs font-bold uppercase tracking-wider text-[#8b5e3c] bg-[#faedcd] px-3.5 py-1 rounded-full">
+        Our Special Recipes
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-[#5c3d2e] brand-font mt-3 tracking-tight">
+        เมนูยอดฮิตประจำร้านชาดิวะ
+      </h2>
+      <p class="text-stone-600 text-sm sm:text-base mt-2">
+        คัดสรรเมนูสุดฮิตที่ลูกค้าการันตีว่าอร่อยติดดาว ฟินจนหยุดดื่มไม่ได้
+      </p>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="flex items-center justify-center gap-2 overflow-x-auto pb-4 no-scrollbar mb-10">
+      <button data-category="all" class="menu-tab-btn active bg-[#5c3d2e] text-white px-5 py-2.5 rounded-2xl text-sm font-semibold whitespace-nowrap shadow-sm transition">
+        ทั้งหมด
+      </button>
+      <button data-category="classic" class="menu-tab-btn bg-white text-stone-700 hover:bg-[#faedcd]/40 px-5 py-2.5 rounded-2xl text-sm font-semibold whitespace-nowrap border border-[#ede0d4] transition">
+        ชานมคลาสสิก
+      </button>
+      <button data-category="cheese" class="menu-tab-btn bg-white text-stone-700 hover:bg-[#faedcd]/40 px-5 py-2.5 rounded-2xl text-sm font-semibold whitespace-nowrap border border-[#ede0d4] transition">
+        ชาชีสพ่นไฟ
+      </button>
+      <button data-category="milk" class="menu-tab-btn bg-white text-stone-700 hover:bg-[#faedcd]/40 px-5 py-2.5 rounded-2xl text-sm font-semibold whitespace-nowrap border border-[#ede0d4] transition">
+        นมสด & โกโก้
+      </button>
+      <button data-category="fruit" class="menu-tab-btn bg-white text-stone-700 hover:bg-[#faedcd]/40 px-5 py-2.5 rounded-2xl text-sm font-semibold whitespace-nowrap border border-[#ede0d4] transition">
+        ชาผลไม้สดชื่น
+      </button>
+    </div>
+
+    <!-- Menu Cards Grid (Rendered by JS) -->
+    <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Injected by JavaScript -->
+    </div>
+  </section>
+
+  <!-- ================= WHY CHADIWA (OUR SECRET) ================= -->
+  <section id="why-us" class="py-16 md:py-24 bg-[#f5ebe0]/70 border-y border-[#ede0d4]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-bold uppercase tracking-wider text-[#8b5e3c] bg-white px-3.5 py-1 rounded-full shadow-sm">
+          Why Chadiwa?
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-[#5c3d2e] brand-font mt-3 tracking-tight">
+          เคล็ดลับความอร่อยที่ทำให้ทุกคนพูดว่า "ชาดีว่ะ!"
+        </h2>
+        <p class="text-stone-600 text-sm sm:text-base mt-2">
+          ความใส่ใจในทุกรายละเอียด ตั้งแต่วิธีคั่วใบชา จนถึงการเคี่ยวน้ำตาลทรายแดง
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Feature 1 -->
+        <div class="bg-white p-7 rounded-3xl border border-[#ede0d4] shadow-sm hover:shadow-md transition">
+          <div class="w-14 h-14 rounded-2xl bg-[#faedcd] flex items-center justify-center text-[#8b5e3c] text-2xl mb-5">
+            <i class="fa-solid fa-leaf"></i>
+          </div>
+          <h3 class="font-bold text-lg text-[#5c3d2e] mb-2 brand-font">ใบชาแท้นำเข้า</h3>
+          <p class="text-xs text-stone-500 leading-relaxed">
+            คัดยอดใบชาคุณภาพสูงจากไร่ชาบนยอดเขาไต้หวันและญี่ปุ่น ให้กลิ่นหอมฟุ้งเป็นเอกลักษณ์และรสชาติเข้มข้นลึกซึ้ง
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="bg-white p-7 rounded-3xl border border-[#ede0d4] shadow-sm hover:shadow-md transition">
+          <div class="w-14 h-14 rounded-2xl bg-[#faedcd] flex items-center justify-center text-[#8b5e3c] text-2xl mb-5">
+            <i class="fa-solid fa-cow"></i>
+          </div>
+          <h3 class="font-bold text-lg text-[#5c3d2e] mb-2 brand-font">นมสดแท้ 100%</h3>
+          <p class="text-xs text-stone-500 leading-relaxed">
+            ใช้นมสดแท้เกรดพรีเมียม ไม่ผสมครีมเทียมหรือไขมันทรานส์ ได้ความนุ่มละมุนและมันกำลังดี ดีต่อสุขภาพ
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="bg-white p-7 rounded-3xl border border-[#ede0d4] shadow-sm hover:shadow-md transition">
+          <div class="w-14 h-14 rounded-2xl bg-[#faedcd] flex items-center justify-center text-[#8b5e3c] text-2xl mb-5">
+            <i class="fa-solid fa-fire-burner"></i>
+          </div>
+          <h3 class="font-bold text-lg text-[#5c3d2e] mb-2 brand-font">ไข่มุกต้มสดทุก 3 ชม.</h3>
+          <p class="text-xs text-stone-500 leading-relaxed">
+            เคี่ยวด้วยน้ำตาลทรายแดงออร์แกนิกตามสูตรลับเฉพาะ เม็ดไข่มุกจึงนุ่ม หนึบ ไม่แข็ง และคงความหอมอุ่นตลอดวัน
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="bg-white p-7 rounded-3xl border border-[#ede0d4] shadow-sm hover:shadow-md transition">
+          <div class="w-14 h-14 rounded-2xl bg-[#faedcd] flex items-center justify-center text-[#8b5e3c] text-2xl mb-5">
+            <i class="fa-solid fa-sliders"></i>
+          </div>
+          <h3 class="font-bold text-lg text-[#5c3d2e] mb-2 brand-font">เลือกหวานได้ดั่งใจ</h3>
+          <p class="text-xs text-stone-500 leading-relaxed">
+            มีระดับความหวานให้เลือกถึง 5 ระดับ เหมาะสำหรับทั้งสายรักสุขภาพที่ชอบหวาน 0% และสายหวานฉ่ำเต็มแก้ว
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROMOTIONS & REWARDS ================= -->
+  <section id="promotions" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      
+      <!-- Promo Banner 1: Loyalty Card -->
+      <div class="lg:col-span-7 bg-gradient-to-br from-[#5c3d2e] to-[#3e2723] rounded-[36px] p-8 sm:p-12 text-white relative overflow-hidden shadow-xl">
+        <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-[#8b5e3c]/30 rounded-full blur-2xl pointer-events-none"></div>
+        
+        <span class="inline-block bg-[#faedcd] text-[#5c3d2e] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
+          Chadiwa Member Club
+        </span>
+
+        <h3 class="text-2xl sm:text-3xl font-extrabold brand-font leading-snug">
+          บัตรสะสมแต้มดิจิทัล 🧋 <br/>
+          สะสมครบ 10 แก้ว ฟรีทันที 1 แก้ว!
+        </h3>
+
+        <p class="text-stone-300 text-sm mt-3 max-w-md leading-relaxed">
+          เพียงบอกเบอร์โทรศัพท์ทุกครั้งที่สั่งซื้อ ไม่ว่าจะหน้าร้านหรือสั่งผ่านเว็บ ระบบจะสะสมแต้มให้อัตโนมัติทันที
+        </p>
+
+        <!-- Digital Stamp Mockup -->
+        <div class="mt-8 bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-2xl max-w-md">
+          <div class="flex items-center justify-between text-xs text-stone-300 mb-3">
+            <span>แต้มสะสมปัจจุบันของคุณ</span>
+            <span class="font-bold text-[#faedcd]">7 / 10 แก้ว</span>
+          </div>
+          <div class="grid grid-cols-5 gap-2 text-center">
+            <div class="w-10 h-10 rounded-full bg-[#faedcd] text-[#5c3d2e] flex items-center justify-center font-bold text-sm shadow">✓</div>
+            <div class="w-10 h-10 rounded-full bg-[#faedcd] text-[#5c3d2e] flex items-center justify-center font-bold text-sm shadow">✓</div>
+            <div class="w-10 h-10 rounded-full bg-[#faedcd] text-[#5c3d2e] flex items-center justify-center font-bold text-sm shadow">✓</div>
+            <div class="w-10 h-10 rounded-full bg-[#faedcd] text-[#5c3d2e] flex items-center justify-center font-bold text-sm shadow">✓</div>
+            <div class="w-10 h-10 rounded-full bg-[#faedcd] text-[#5c3d2e] flex items-center justify-center font-bold text-sm shadow">✓</div>
+            <div class="w-10 h-10 rounded-full bg-[#faedcd] text-[#5c3d2e] flex items-center justify-center font-bold text-sm shadow">✓</div>
+            <div class="w-10 h-10 rounded-full bg-[#faedcd] text-[#5c3d2e] flex items-center justify-center font-bold text-sm shadow">✓</div>
+            <div class="w-10 h-10 rounded-full bg-white/20 text-stone-400 flex items-center justify-center font-bold text-sm">8</div>
+            <div class="w-10 h-10 rounded-full bg-white/20 text-stone-400 flex items-center justify-center font-bold text-sm">9</div>
+            <div class="w-10 h-10 rounded-full bg-amber-400 text-[#5c3d2e] flex items-center justify-center font-bold text-sm shadow-md animate-bounce">🎁</div>
+          </div>
+        </div>
+
+        <button 
+          onclick="openCheckoutModal()" 
+          class="mt-8 bg-[#faedcd] hover:bg-white text-[#5c3d2e] font-bold text-sm px-6 py-3.5 rounded-2xl shadow-lg transition active:scale-95"
+        >
+          สั่งซื้อเพื่อสะสมแต้มเลย
+        </button>
+      </div>
+
+      <!-- Promo Banner 2: Discount Coupon Box -->
+      <div class="lg:col-span-5 bg-white rounded-[36px] p-8 sm:p-10 border border-[#ede0d4] shadow-lg flex flex-col justify-between">
+        <div>
+          <span class="inline-block bg-[#e76f51]/10 text-[#e76f51] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
+            Special Coupon 🔥
+          </span>
+          <h3 class="text-2xl font-bold text-[#5c3d2e] brand-font">
+            โค้ดส่วนลดลูกค้าใหม่
+          </h3>
+          <p class="text-sm text-stone-600 mt-2">
+            กรอกโค้ดนี้ในขั้นตอนสั่งซื้อ รับส่วนลดทันที 10% สำหรับทุกเมนู ไม่มีขั้นต่ำ!
+          </p>
+
+          <div class="mt-6 p-4 rounded-2xl border-2 border-dashed border-[#d4a373] bg-[#faf6f0] flex items-center justify-between">
+            <div>
+              <span class="text-xs text-stone-400 block">โค้ดส่วนลดของคุณ:</span>
+              <span class="text-xl font-mono font-black text-[#5c3d2e] tracking-widest">CHADIWA10</span>
+            </div>
+            <button 
+              onclick="navigator.clipboard.writeText('CHADIWA10'); showToast('คัดลอกโค้ด CHADIWA10 สำเร็จแล้ว! ✨');"
+              class="bg-[#8b5e3c] hover:bg-[#5c3d2e] text-white text-xs font-semibold px-4 py-2 rounded-xl transition active:scale-95 shadow-sm"
+            >
+              คัดลอกโค้ด
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-stone-100 flex items-center justify-between text-xs text-stone-400">
+          <span>* ใช้ได้ 1 สิทธิ์ต่อ 1 หมายเลขโทรศัพท์</span>
+          <span>หมดเขตสิ้นเดือนนี้</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CUSTOMER REVIEWS ================= -->
+  <section class="py-16 bg-[#f5ebe0]/40 border-t border-[#ede0d4]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#5c3d2e] brand-font tracking-tight">
+          รีวิวความประทับใจจากลูกค้า
+        </h2>
+        <p class="text-stone-500 text-sm mt-1">เสียงจริงจากคนที่ได้ลอง "ชาดิวะ"</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Review 1 -->
+        <div class="bg-white p-6 rounded-3xl border border-[#ede0d4] shadow-sm">
+          <div class="flex text-amber-500 text-xs mb-3 gap-1">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-stone-700 text-sm leading-relaxed mb-4">
+            "กินครั้งแรกคือต้องอุทานว่าชาดีว่ะจริงๆ! หอมใบชามาก สั่งหวาน 25% คือกำลังพอดี ไม่เลี่ยนเลย ไข่มุกนุ่มหนึบเคี้ยวเพลินสุดๆ"
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-[#faedcd] flex items-center justify-center font-bold text-[#5c3d2e]">
+              น
+            </div>
+            <div>
+              <div class="text-xs font-bold text-stone-800">คุณแนน (นักศึกษา ม.เกษตร)</div>
+              <div class="text-[11px] text-stone-400">ลูกค้าประจำสาขาสยาม</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="bg-white p-6 rounded-3xl border border-[#ede0d4] shadow-sm">
+          <div class="flex text-amber-500 text-xs mb-3 gap-1">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-stone-700 text-sm leading-relaxed mb-4">
+            "เมนูชาไทยชีสพ่นไฟคือที่สุดของปีนี้ โฟมชีสหนานุ่ม เค็มๆ มันๆ ตัดกับชาไทยเข้มข้นได้ลงตัวมาก สั่งมาดื่มตอนทำงานช่วงบ่ายคือตื่นเลยครับ"
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-[#faedcd] flex items-center justify-center font-bold text-[#5c3d2e]">
+              ก
+            </div>
+            <div>
+              <div class="text-xs font-bold text-stone-800">คุณกอล์ฟ (UX Designer)</div>
+              <div class="text-[11px] text-stone-400">สั่งเดลิเวอรีสัปดาห์ละ 3 วัน</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="bg-white p-6 rounded-3xl border border-[#ede0d4] shadow-sm">
+          <div class="flex text-amber-500 text-xs mb-3 gap-1">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-stone-700 text-sm leading-relaxed mb-4">
+            "ชอบระบบในเว็บมากค่ะ มีให้จำลองมิกซ์แก้วเอง เห็นหน้าตาก่อนสั่งจริง เพลินมาก สั่งง่าย ชำระเงินสะดวก บริการดีเยี่ยมค่ะ"
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-[#faedcd] flex items-center justify-center font-bold text-[#5c3d2e]">
+              ป
+            </div>
+            <div>
+              <div class="text-xs font-bold text-stone-800">คุณป่าน (Content Creator)</div>
+              <div class="text-[11px] text-stone-400">ลูกค้าสาขาอารีย์</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LOCATIONS & CONTACT ================= -->
+  <section id="contact" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white rounded-[36px] border border-[#ede0d4] p-8 sm:p-12 shadow-lg">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#8b5e3c] bg-[#faedcd] px-3.5 py-1 rounded-full">
+            Our Branches & Delivery
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#5c3d2e] brand-font tracking-tight">
+            แวะมาสัมผัสความฟินที่หน้าร้าน หรือสั่งเดลิเวอรีถึงที่
+          </h2>
+          <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
+            ชาดิวะเปิดให้บริการทุกวัน ตั้งแต่เวลา <strong>09:30 - 20:30 น.</strong> พร้อมเสิร์ฟความสดชื่นให้คุณได้ทั้ง 3 สาขา
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-3.5">
+              <div class="w-9 h-9 rounded-xl bg-[#faedcd] text-[#5c3d2e] flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-store"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-[#5c3d2e] text-sm">สาขาสยามสแควร์ (Flagship Store)</h4>
+                <p class="text-xs text-stone-500">สยามสแควร์ ซอย 3 ตรงข้ามศูนย์หนังสือจุฬาฯ (เปิดทุกวัน)</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="w-9 h-9 rounded-xl bg-[#faedcd] text-[#5c3d2e] flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-store"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-[#5c3d2e] text-sm">สาขาอารีย์ ซอย 1</h4>
+                <p class="text-xs text-stone-500">BTS อารีย์ ทางออก 3 เดินเข้าซอย 80 เมตร ร้านโทนสีน้ำตาลพาสเทล</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="w-9 h-9 rounded-xl bg-[#faedcd] text-[#5c3d2e] flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-[#5c3d2e] text-sm">โทรสอบถาม / สั่งจัดเลี้ยง</h4>
+                <p class="text-xs text-stone-500">089-123-4567, 02-987-6543</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Delivery Apps Links -->
+          <div class="pt-4 border-t border-stone-100">
+            <span class="text-xs font-bold text-stone-500 block mb-3">สั่งผ่านเดลิเวอรีคนโปรดของคุณ:</span>
+            <div class="flex flex-wrap gap-2.5">
+              <span class="px-4 py-2 rounded-xl bg-[#06C755] text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm">
+                <i class="fa-brands fa-line text-sm"></i> LINE MAN
+              </span>
+              <span class="px-4 py-2 rounded-xl bg-[#00B14F] text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm">
+                GrabFood
+              </span>
+              <span class="px-4 py-2 rounded-xl bg-[#EE4D2D] text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm">
+                ShopeeFood
+              </span>
+              <span class="px-4 py-2 rounded-xl bg-[#8A3897] text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm">
+                Robinhood
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Store Map Illustration / Photo Card -->
+        <div class="lg:col-span-6">
+          <div class="relative rounded-3xl overflow-hidden shadow-xl border border-[#ede0d4] group">
+            <img 
+              src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&auto=format&fit=crop&q=80" 
+              alt="Chadiwa Cafe Atmosphere" 
+              class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#5c3d2e]/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+              <span class="text-xs font-semibold text-[#faedcd] uppercase tracking-wider">บรรยากาศร้านอบอุ่น</span>
+              <h3 class="text-xl font-bold brand-font mt-1">ยินดีต้อนรับสู่บ้าน "ชาดิวะ"</h3>
+              <p class="text-xs text-stone-200 mt-1">มีมุมถ่ายรูปคุมโทนสีน้ำตาลมินิมอล พร้อมที่นั่งทำงานและฟรี Wi-Fi</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-[#5c3d2e] text-[#faedcd] pt-14 pb-8 border-t border-[#8b5e3c]/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-[#8b5e3c]/40">
+        
+        <!-- Brand Info -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-[#8b5e3c] flex items-center justify-center text-white">
+              <i class="fa-solid fa-mug-hot text-xl"></i>
+            </div>
+            <span class="text-2xl font-black brand-font tracking-tight">ชาดิวะ (CHADIWA)</span>
+          </div>
+          <p class="text-xs text-[#faedcd]/80 max-w-sm leading-relaxed">
+            ร้านชานมไข่มุกพรีเมียมที่มุ่งมั่นเสิร์ฟเครื่องดื่มคุณภาพดีที่สุด ใบชาแท้ 100% ไข่มุกเคี่ยวน้ำตาลทรายแดงสดใหม่ หอมละมุนในทุกแก้วที่คุณดื่ม
+          </p>
+          <div class="flex gap-3 text-lg text-[#faedcd]/90 pt-2">
+            <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-[#5c3d2e] transition"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-[#5c3d2e] transition"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-[#5c3d2e] transition"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-[#5c3d2e] transition"><i class="fa-brands fa-line"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-bold text-white text-sm mb-3.5 brand-font">เมนูแนะนำ</h4>
+          <ul class="text-xs space-y-2.5 text-[#faedcd]/80">
+            <li><a href="#menu" class="hover:underline">ชาดิวะ ซิกเนเจอร์</a></li>
+            <li><a href="#menu" class="hover:underline">ชาไทยพรีเมียมลาวาชีส</a></li>
+            <li><a href="#menu" class="hover:underline">บราวน์ชูการ์นมสดฮอกไกโด</a></li>
+            <li><a href="#menu" class="hover:underline">มัทฉะอุจิวิปชีสพ่นไฟ</a></li>
+            <li><a href="#lab" class="hover:underline">มิกซ์ชาสไตล์คุณเอง</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & Hours -->
+        <div>
+          <h4 class="font-bold text-white text-sm mb-3.5 brand-font">เวลาทำการ</h4>
+          <ul class="text-xs space-y-2.5 text-[#faedcd]/80">
+            <li>จันทร์ - ศุกร์: 08:30 - 20:30 น.</li>
+            <li>เสาร์ - อาทิตย์: 09:30 - 21:00 น.</li>
+            <li class="pt-2 text-white font-semibold"><i class="fa-solid fa-envelope mr-1.5"></i> hello@chadiwatea.com</li>
+            <li class="text-white font-semibold"><i class="fa-solid fa-phone mr-1.5"></i> 089-123-4567</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright -->
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#faedcd]/60">
+        <div>© 2026 ชาดิวะ (CHADIWA) Co., Ltd. All rights reserved.</div>
+        <div class="mt-2 sm:mt-0">Made with 🧋 for Boba Lovers everywhere</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= CART SLIDE-OVER DRAWER ================= -->
+  <div id="cart-overlay" onclick="toggleCartDrawer()" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  
+  <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between">
+    <!-- Header -->
+    <div class="p-5 border-b border-[#ede0d4] flex items-center justify-between bg-[#faf6f0]">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-bag-shopping text-[#5c3d2e] text-lg"></i>
+        <h3 class="font-bold text-lg text-[#5c3d2e] brand-font">ตะกร้าเครื่องดื่มของคุณ</h3>
+      </div>
+      <button onclick="toggleCartDrawer()" class="text-stone-400 hover:text-stone-700 text-xl p-1">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Items List -->
+    <div id="cart-items-list" class="p-5 overflow-y-auto flex-1 space-y-3">
+      <!-- Injected by JavaScript -->
+    </div>
+
+    <!-- Footer Summary -->
+    <div class="p-5 border-t border-[#ede0d4] bg-[#faf6f0] space-y-3">
+      <div class="flex items-center justify-between text-sm text-stone-600">
+        <span>ยอดรวมย่อย:</span>
+        <span id="cart-subtotal" class="font-bold text-stone-800">฿0</span>
+      </div>
+      <div class="flex items-center justify-between text-base font-extrabold text-[#5c3d2e] border-t border-stone-200 pt-2">
+        <span>ยอดชำระสุทธิ:</span>
+        <span id="cart-total" class="text-xl">฿0</span>
+      </div>
+
+      <button 
+        onclick="openCheckoutModal()" 
+        class="w-full bg-[#5c3d2e] hover:bg-[#3e2723] text-white py-3.5 rounded-2xl font-bold shadow-md transition active:scale-95 flex items-center justify-center gap-2"
+      >
+        <span>ไปขั้นตอนสั่งซื้อและชำระเงิน</span>
+        <i class="fa-solid fa-arrow-right text-xs"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= CHECKOUT MODAL ================= -->
+  <div id="checkout-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-[32px] max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-[#ede0d4] max-h-[90vh] overflow-y-auto">
+      
+      <div class="flex items-center justify-between border-b border-stone-100 pb-4 mb-5">
+        <h3 class="font-extrabold text-xl text-[#5c3d2e] brand-font flex items-center gap-2">
+          <i class="fa-solid fa-receipt text-[#8b5e3c]"></i>
+          <span>ยืนยันการสั่งซื้อ</span>
+        </h3>
+        <button onclick="closeCheckoutModal()" class="text-stone-400 hover:text-stone-700 text-xl">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form onsubmit="submitOrder(event)" class="space-y-4">
+        <!-- Delivery or Pickup Option -->
+        <div>
+          <label class="block text-xs font-bold text-[#5c3d2e] mb-2">รูปแบบการรับสินค้า</label>
+          <div class="grid grid-cols-2 gap-3">
+            <label class="flex items-center gap-2.5 p-3 rounded-2xl border-2 border-[#8b5e3c] bg-[#faedcd]/30 cursor-pointer">
+              <input type="radio" name="order-type" value="delivery" checked class="accent-[#5c3d2e]">
+              <span class="text-xs sm:text-sm font-bold text-[#5c3d2e]">🛵 จัดส่งเดลิเวอรี</span>
+            </label>
+            <label class="flex items-center gap-2.5 p-3 rounded-2xl border border-stone-200 cursor-pointer hover:border-stone-400">
+              <input type="radio" name="order-type" value="pickup" class="accent-[#5c3d2e]">
+              <span class="text-xs sm:text-sm font-bold text-stone-700">🏪 รับที่หน้าร้าน</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Customer Name -->
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">ชื่อผู้รับ</label>
+          <input 
+            type="text" 
+            id="order-name" 
+            required 
+            placeholder="เช่น คุณสมชาย ชานมเลิฟเวอร์" 
+            class="w-full px-4 py-2.5 rounded-xl border border-stone-200 focus:outline-none focus:border-[#8b5e3c] text-sm"
+          >
+        </div>
+
+        <!-- Phone Number -->
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">เบอร์โทรศัพท์ (สำหรับสะสมแต้มและติดต่อ)</label>
+          <input 
+            type="tel" 
+            id="order-phone" 
+            required 
+            placeholder="08X-XXX-XXXX" 
+            class="w-full px-4 py-2.5 rounded-xl border border-stone-200 focus:outline-none focus:border-[#8b5e3c] text-sm font-mono"
+          >
+        </div>
+
+        <!-- Address -->
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">ที่อยู่จัดส่ง / สาขาที่ต้องการรับ</label>
+          <textarea 
+            rows="2" 
+            placeholder="ระบุบ้านเลขที่ ซอย ถนน แขวง/ตำบล หรือระบุชื่อสาขาที่สะดวกรับ" 
+            class="w-full px-4 py-2.5 rounded-xl border border-stone-200 focus:outline-none focus:border-[#8b5e3c] text-sm"
+          ></textarea>
+        </div>
+
+        <!-- Payment Method -->
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-2">ช่องทางการชำระเงิน</label>
+          <div class="p-3.5 rounded-2xl bg-[#faf6f0] border border-[#ede0d4] flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-white border border-[#ede0d4] flex items-center justify-center text-[#003B71] font-bold text-xs shadow-sm">
+                PP
+              </div>
+              <div>
+                <div class="text-xs font-bold text-[#5c3d2e]">พร้อมเพย์ QR Code (PromptPay)</div>
+                <div class="text-[11px] text-stone-400">สแกนจ่ายรวดเร็ว ไม่มีค่าธรรมเนียม</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-circle-check text-[#5c3d2e]"></i>
+          </div>
+        </div>
+
+        <!-- Total Price Summary -->
+        <div class="bg-[#faf6f0] p-4 rounded-2xl border border-[#ede0d4] flex items-center justify-between">
+          <span class="text-sm font-semibold text-stone-600">ยอดชำระทั้งหมด:</span>
+          <span id="checkout-total-price" class="text-2xl font-black text-[#5c3d2e] brand-font">฿0</span>
+        </div>
+
+        <!-- Submit Button -->
+        <button 
+          type="submit" 
+          class="w-full bg-[#5c3d2e] hover:bg-[#3e2723] text-white py-3.5 rounded-2xl font-bold shadow-lg shadow-[#5c3d2e]/25 transition active:scale-95 text-base"
+        >
+          ยืนยันและส่งคำสั่งซื้อ 🧋
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ================= SUCCESS ORDER MODAL ================= -->
+  <div id="order-success-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-[36px] max-w-sm w-full p-8 text-center shadow-2xl border border-[#ede0d4] space-y-4">
+      <div class="w-20 h-20 bg-[#faedcd] text-[#5c3d2e] rounded-full flex items-center justify-center text-4xl mx-auto shadow-inner">
+        🧋
+      </div>
+      <h3 class="text-2xl font-extrabold text-[#5c3d2e] brand-font">
+        รับออเดอร์เรียบร้อยแล้ว!
+      </h3>
+      <p class="text-xs text-stone-500 leading-relaxed">
+        ขอบคุณ <strong id="success-customer-name" class="text-[#5c3d2e]">คุณลูกค้า</strong> ที่เลือกอร่อยกับชาดิวะ <br/>
+        เรากำลังชงชาอย่างพิถีพิถันเพื่อส่งความสดชื่นให้คุณ
+      </p>
+
+      <div class="bg-[#faf6f0] p-4 rounded-2xl text-xs text-stone-600 space-y-1.5 text-left border border-[#ede0d4]">
+        <div class="flex justify-between">
+          <span class="text-stone-400">รูปแบบ:</span>
+          <span id="success-method" class="font-bold text-stone-800"></span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-stone-400">เบอร์โทรติดต่อ:</span>
+          <span id="success-phone" class="font-bold text-stone-800"></span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-stone-400">สถานะ:</span>
+          <span class="font-bold text-emerald-600">กำลังเตรียมเครื่องดื่ม 🧋</span>
+        </div>
+      </div>
+
+      <button 
+        onclick="closeSuccessModal()" 
+        class="w-full bg-[#5c3d2e] hover:bg-[#3e2723] text-white py-3 rounded-2xl font-bold text-sm shadow transition"
+      >
+        ตกลง ขอบคุณค่ะ
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= TOAST NOTIFICATION ================= -->
+  <div 
+    id="toast-notification" 
+    class="fixed bottom-6 right-6 z-50 bg-[#5c3d2e] text-[#faedcd] px-5 py-3.5 rounded-2xl shadow-xl flex items-center gap-3 transform translate-y-10 opacity-0 pointer-events-none transition-all duration-300 text-sm font-semibold border border-[#8b5e3c]"
+  >
+    <i class="fa-solid fa-circle-check text-amber-300 text-lg"></i>
+    <span id="toast-message">เพิ่มลงในตะกร้าแล้ว!</span>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
